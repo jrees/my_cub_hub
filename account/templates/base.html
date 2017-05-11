@@ -1,10 +1,33 @@
+{%  load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}{%  endblock %}</title>
+    <link href="{%  static "css/base.css" %}" rel="stylesheet">
 </head>
 <body>
-
+    <div id="header">
+        <span class="logo">My Cub Hub</span>
+        {% if request.user.is_authenticated %}
+            <ul class="menu">
+                <li {% if section == "dashboard"%}class="selected"{% endif %}>
+                    <a href=""{% url "dashboard" %}>My dashboard</a>
+                </li>
+            </ul>
+{#            skipped the other options from p.100 of django by example as not applicable#}
+        {% endif %}
+    <span class="user">
+        {%  if request.user.is_authenticated %}
+            Hello {{ request.user.first_name }}
+            <a href="{%  url "logout" %}">Logout</a>
+        {%  else %}
+            <a href="{%  url "login" %}">Log-in</a>
+        {%  endif %}
+    </span>
+    </div>
+    <div id="content">
+        {% block content %}
+        {%  endblock %}
+    </div>
 </body>
 </html>
