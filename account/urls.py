@@ -16,7 +16,7 @@ urlpatterns = [
         auth_views.password_change_done,
         name="password_change_done"),
 
-    # restore passwordd urls
+    # restore password urls
     url(r'^password-reset/$',
         auth_views.password_reset,
         name="password_reset"),
@@ -29,4 +29,7 @@ urlpatterns = [
     url(r'^password-reset/complete/$',
         auth_views.password_reset_complete,
         name="password_reset_complete"),
+
+    # user registration urls
+    url(r'^register/$', views.register, name='register'),
     ]
