@@ -32,4 +32,10 @@ urlpatterns = [
 
     # user registration urls
     url(r'^register/$', views.register, name='register'),
+
+    # edit user profile
+    url(r'^edit/$', views.edit, name='edit'),
+
+    url(r'^dashboard/$', views.dashboard, name='dashboard')
+
     ]
