@@ -11,3 +11,5 @@ class UrlTests(TestCase):
         # line below uses the url_name, whereas the line after uses func, both seem to work
         # self.assertEqual(found.url_name, 'dashboard')
         self.assertEquals(found.func, dashboard)
+
+        # xxx   

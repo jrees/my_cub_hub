@@ -215,3 +215,7 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 .idea/inspectionProfiles/profiles_settings.xml
+*.sqlite3
+.idea/workspace.xml
+*.xml
+.idea/my_cub_hub.iml
