@@ -41,6 +41,12 @@ class UrlTests(TestCase):
         response = self.c.get('/login')
         self.assertEquals(response.status_code, 301)
 
+    def test_edit_user_page(self):
+        self.login_user()
+        response = self.c.get('/edit')
+        self.assertEquals(response.status_code, 301)
+        self.assertEquals(response.url, '/edit/')
+
 # test creating new user
 
 
