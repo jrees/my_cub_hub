@@ -7,11 +7,16 @@ from .views import dashboard
 # Create your tests here.
 class UrlTests(TestCase):
 
+    c = Client()
+
     def setUp(self):
         self.factory = RequestFactory()
         self.user = User.objects.create_user(
             username='Mario', email='mario@mushroom.com', password='luigi'
         )
+
+    def login_user(self):
+        self.c.login(username='Mario', password='luigi')
 
     def test_root_url(self):
         found = resolve('/')
@@ -20,16 +25,21 @@ class UrlTests(TestCase):
         self.assertEquals(found.func, dashboard)
 
     def test_dashboard_if_logged_in(self):
-        c = Client()
-        c.login(username='Mario', password='luigi')
-        response = c.get('/')
+        # c = Client()
+        # c.login(username='Mario', password='luigi')
+        self.login_user()
+        response = self.c.get('/')
         self.assertEquals(response.status_code, 200)
 
     def test_redirect_if_not_logged_in(self):
-        c = Client()
-        response = c.get('/')
+        self.c.logout()
+        response = self.c.get('/')
         self.assertEquals(response.status_code, 302)
 
+    def test_redirect_from_login_page_if_logged_in(self):
+        self.login_user()
+        response = self.c.get('/login')
+        self.assertEquals(response.status_code, 301)
 
 # test creating new user
 

@@ -15,5 +15,7 @@ class NewVisitorTest(unittest.TestCase):
         self.assertIn('Log-in', self.browser.title)
         self.fail('finished the test')
 
+        # test creating new user
+
 if __name__ == 'main':
     unittest.main(warnings='ignore')

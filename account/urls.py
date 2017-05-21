@@ -4,7 +4,12 @@ from . import views
 
 urlpatterns = [
     # login / logout urls
-    url(r'^login/$', auth_views.login, name='login'),
+    # url(r'^login/$', auth_views.login, name='login'),
+    # above is the old way, but this does not redirect if already logged in.
+    # below is the new django 1.11 way which does redirect
+    url(r'^login/',
+        auth_views.LoginView.as_view(redirect_authenticated_user=True),
+        name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^logout-then-login/$', auth_views.login, name='logout_then_login'),
     url(r'^$', views.dashboard, name='dashboard'),
