@@ -9,11 +9,8 @@ class Profile(models.Model):
     date_of_birth = models.DateField(blank=True, null=True)
     photo = models.ImageField(upload_to='users/%Y/%m%d', blank=True)
 
-
-    #ChildminderUser = 'Childminder'
-    #ParentUser = 'Parent'
-    #PROFILE_TYPE_CHOICES = ((ChildminderUser, 'Childminder'), (ParentUser, 'Parent'))
-    #profile_type = models.CharField(max_length=11, choices=PROFILE_TYPE_CHOICES, default=ChildminderUser)
+#    PROFILE_TYPE_CHOICES = ((ChildminderUser, 'Childminder'), (ParentUser, 'Parent'))
+#    profile_type = models.Model(choices=PROFILE_TYPE_CHOICES, default=ChildminderUser)
 
     def __str__(self):
         return 'Profile for user {}'.format(self.user.username)

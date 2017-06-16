@@ -1,5 +1,15 @@
 {%  load staticfiles %}
 <!DOCTYPE html>
+
+{% if messages %}
+  {% for message in messages %}
+    <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
 <html>
 <head>
     <title>{% block title %}{%  endblock %}</title>
