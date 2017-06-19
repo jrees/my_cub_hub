@@ -22,8 +22,8 @@ class Assessment(BaseModel):
 class Hazard(BaseModel):
     assessment = models.ForeignKey(Assessment, related_name='hazards')
     hazard_name = models.CharField(max_length=50)
-    possible_risk = models.CharField(max_length=10)
-    possible_consequences = models.CharField(max_length=500)
+    possible_risk = models.TextField()
+    possible_consequences = models.TextField
     preControl = models.CharField(max_length=200)
     postControls = models.CharField(max_length=200)
     date_to_be_completed = models.DateField()
