@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
 from django.contrib import messages
+from django.contrib.auth.models import Group
 
 
 @login_required
@@ -40,6 +41,8 @@ def parent_register(request):
             # save the user object
             new_user.save()
             profile = Profile.objects.create(user=new_user)
+            g = Group.objects.get(name='parents')
+            g.user_set.add(new_user)
             return render(request, 'account/register_done.html', {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
