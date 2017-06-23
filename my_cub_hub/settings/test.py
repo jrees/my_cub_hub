@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 from django.core.urlresolvers import reverse_lazy
+
+from .base import
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,11 +26,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'sjg*t5l69f8js6r#b5vh#d89nih5(r&3%i=2&ds=tczeft7g#q'
 
+ENVIRONMENT = 'production'
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = false
 
 ALLOWED_HOSTS = ['mycubhub.herokuapp.com']
 
+DATABASES['default'] = dj_database_url.config(default='https://data.heroku.com/datastores/5c8e289a-5b35-4a65-b7b7-0d603ac95d2e')
 
 # Application definition
 
@@ -84,8 +89,16 @@ WSGI_APPLICATION = 'my_cub_hub.wsgi.application'
 #    }
 #}
 
-DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mch',
+        'USER': 'mchadmin',
+        'PASSWORD': 'p1n3appl3mch',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -119,15 +132,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-
-#STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
