@@ -9,7 +9,7 @@ ENVIRONMENT = 'production'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['mycubhub.herokuapp.com']
+ALLOWED_HOSTS = ['my_cub_hub.herokuapp.com']
 
 WSGI_APPLICATION = 'my_cub_hub.wsgi.application'
 

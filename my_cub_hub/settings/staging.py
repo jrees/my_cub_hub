@@ -31,7 +31,7 @@ ENVIRONMENT = 'production'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = false
 
-ALLOWED_HOSTS = ['mycubhub.herokuapp.com']
+ALLOWED_HOSTS = ['my_cub_hub.herokuapp.com']
 
 DATABASES['default'] = dj_database_url.config(default='https://data.heroku.com/datastores/5c8e289a-5b35-4a65-b7b7-0d603ac95d2e')
 

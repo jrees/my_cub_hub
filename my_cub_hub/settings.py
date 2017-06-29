@@ -27,7 +27,7 @@ SECRET_KEY = 'sjg*t5l69f8js6r#b5vh#d89nih5(r&3%i=2&ds=tczeft7g#q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mycubhub.herokuapp.com']
+ALLOWED_HOSTS = ['my_cub_hub.herokuapp.com']
 
 
 # Application definition

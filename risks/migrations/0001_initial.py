@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('preControl', models.CharField(max_length=200)),
                 ('postControls', models.CharField(max_length=200)),
                 ('date_to_be_completed', models.DateField()),
-                ('assessment', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='hazards', to='risks.Assessment')),
+                ('risks', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='hazards', to='risks.Assessment')),
             ],
             options={
                 'abstract': False,

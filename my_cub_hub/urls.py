@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('account.urls')),
     url(r'', include('account.urls')),
-    #url(r'^risks/', include('risks.urls')),
+    url(r'^risks/', include('risks.urls')),
     #url(r'', include('risks.urls')),
 ]
 

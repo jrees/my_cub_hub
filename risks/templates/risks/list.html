@@ -1,0 +1,24 @@
+{%  extends "base.html" %}
+
+{% block title %}My Risk Assessments{% endblock %}
+
+{%  block content %}
+    <h1>My Risk Assessments</h1>
+
+    <div>
+        {%  for assessment in object_list %}
+            <div class="assessment-info">
+                <h3>{{ assessment.assessment_name }}</h3>
+                <p>
+                    <a href="{% url "assessment_change" assessment.id %}">Edit</a>
+                    <a href="{% url "assessment_delete" assessment.id %}">Delete</a>
+                </p>
+            </div>
+        {%  empty %}
+            <p>You haven't created any Risk Assessments yet.</p>
+        {% endfor %}
+        <p>
+            <a href="{%  url "assessment_create" %}" class="button">Create new Risk Assessment</a>
+        </p>
+    </div>
+{%  endblock %}
