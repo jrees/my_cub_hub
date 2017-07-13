@@ -7,11 +7,12 @@
 
     <div>
         {%  for assessment in object_list %}
-            <div class="assessment-info">
+            <div>
                 <h3>{{ assessment.assessment_name }}</h3>
                 <p>
-                    <a href="{% url "assessment_change" assessment.id %}">Edit</a>
+                    <a href="{% url "assessment_edit" assessment.id %}">Edit</a>
                     <a href="{% url "assessment_delete" assessment.id %}">Delete</a>
+                    <a href="{% url "assessment_hazard_update" assessment.id %}">Edit Hazards</a>
                 </p>
             </div>
         {%  empty %}

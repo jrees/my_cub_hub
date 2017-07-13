@@ -18,14 +18,12 @@
 </head>
 <body>
     <div id="header">
-        <span class="logo">My Cub Hub</span>
+        <span class="logo">My Cub Hub 2</span>
         {% if request.user.is_authenticated %}
             <ul class="menu">
                 <li {% if section == "dashboard"%}class="selected"{% endif %}>
-                    <a href="{% url "dashboard" %}">Dashboard</a>
-                </li>
-                <li {% if section == "edit"%}class="selected"{% endif %}>
-                    <a href="{% url "edit" %}">Edit Profile</a>
+                    <a href=""{% url "dashboard" %}>Dashboard</a>
+                    <a href=""{% url "dashboard" %}>Risks</a>
                 </li>
             </ul>
 {#            skipped the other options from p.100 of django by example as not applicable#}

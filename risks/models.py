@@ -1,5 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime, timedelta
+
+
+def get_month_from_now():
+    return datetime.today() + timedelta(days=30)
 
 
 class BaseModel(models.Model):
@@ -22,11 +27,11 @@ class Assessment(BaseModel):
 class Hazard(BaseModel):
     assessment = models.ForeignKey(Assessment, related_name='hazards')
     hazard_name = models.CharField(max_length=50)
-    possible_risk = models.TextField()
-    possible_consequences = models.TextField
-    preControl = models.CharField(max_length=200)
-    postControls = models.CharField(max_length=200)
-    date_to_be_completed = models.DateField()
+    possible_risk = models.TextField(default='')
+    possible_consequences = models.TextField(default='')
+    preControls = models.CharField(max_length=200, default='')
+    postControls = models.CharField(max_length=200, default='')
+    date_to_be_completed = models.DateField(default=get_month_from_now())
 
     def __str__(self):
         return self.hazard_name

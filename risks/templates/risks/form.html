@@ -9,19 +9,12 @@
 {%  endblock %}
 
 {%  block content %}
-    <h1>
-        {%  if object %}
-            Edit Risk Assessment "{{  object.assessment_name }}"
-        {%  else %}
-            Create a new Risk Assessment
-        {%  endif %}
-    </h1>
     <div>
-        <h2>Risk Assessment Information</h2>
+        <h1>Risk Assessment Information</h1>
         <form action="." method="post">
             {{ form.as_p }}
             {%  csrf_token %}
             <p><input type="submit" value="Save Risk Assessment"></p>
         </form>
     </div>
-{% endblock %}
+{%  endblock %}
