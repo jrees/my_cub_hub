@@ -1,15 +1,6 @@
+{%  extends "base.html" %}
+
 {%  load staticfiles %}
-
-{# Load the tag library #}
-{% load bootstrap3 %}
-
-{# Load CSS and JavaScript #}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
-
 <!DOCTYPE html>
 
 {% if messages %}
@@ -29,7 +20,7 @@
 </head>
 <body>
     <div id="header">
-        <span class="logo">My Cub Hub</span>
+        <span class="logo">My Cub Hub - account base</span>
         {% if request.user.is_authenticated %}
             <ul class="menu">
                 <li {% if section == "dashboard"%}class="selected"{% endif %}>

@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="header">
-        <span class="logo">My Cub Hub</span>
+        <span class="logo">My Cub Hub - account base</span>
         {% if request.user.is_authenticated %}
             <ul class="menu">
                 <li {% if section == "dashboard"%}class="selected"{% endif %}>

@@ -1,5 +1,15 @@
 {%  extends "base.html" %}
 
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
 {%  block title %}
     Editing hazards for {{ assessment.assessment_name }}
 {%  endblock %}
@@ -9,10 +19,9 @@
     <h1>Edit Hazards for: {{ assessment.assessment_name }}</h1>
     <div>
         <form action="" method="post">
-            {{ form }}
-            {{  form.as_p }}
-            {{ formset }}
-            {{ formset.management_form }}
+
+            {% bootstrap_formset formset %}
+{#            {{ formset.management_form }}#}
             {% csrf_token %}
             <input type="submit" class="button" value="Save Hazards">
         </form>
