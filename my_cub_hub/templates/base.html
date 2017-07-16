@@ -47,18 +47,18 @@
                 <a class="navbar-brand" href="{% url "dashboard" %}">My Cub Hub</a>
             </div>
             <ul class="nav navbar-nav">
-                <li>
+                <li role="presentation" {% if request.resolver_match.url_name == 'dashboard' %}class="active"{% endif %}>
                     <a href="{% url "dashboard" %}">Home</a>
                 </li>
-                <li>
+                <li role="presentation" {% if request.resolver_match.url_name == 'manage_assessment_list' %}class="active"{% endif %}>
                     <a href="{% url "manage_assessment_list" %}">Risk Assessments</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li role="presentation" {% if request.resolver_match.url_name == 'edit' %}class="active"{% endif %}>
                     <a href="{% url "edit" %}">Edit Profile</a>
                 </li>
-                <li>
+                <li role="presentation">
                     <a href="{%  url "logout" %}">Logout</a>
                 </li>
             </ul>
